@@ -1,0 +1,39 @@
+company table => c_id, c_name, c_location
+product => p_id , c_id(foreign key) , p_name, manufactring_date, expiry_date, price
+
+
+CREATE TABLE Company (
+    C_id INT AUTO_INCREMENT PRIMARY KEY,
+    C_name VARCHAR(100) NOT NULL,
+    C_location VARCHAR(255)
+);
+
+CREATE TABLE Product (
+    ProductID INT AUTO_INCREMENT PRIMARY KEY,
+    ProductName VARCHAR(100) NOT NULL,
+    CompanyID INT,
+    ManufacturingDate DATE NOT NULL,
+    ExpiryDate DATE NOT NULL,
+    Price INT NOT NULL,
+    FOREIGN KEY (CompanyID) REFERENCES Company(C_id)
+);
+
+
+
+CREATE TABLE Company (
+    C_ID INT AUTO_INCREMENT PRIMARY KEY,
+    C_name VARCHAR(100) NOT NULL,
+    C_location VARCHAR(255)
+);
+
+CREATE TABLE Product (
+    ProductID INT AUTO_INCREMENT PRIMARY KEY,
+    ProductName VARCHAR(100) NOT NULL,
+    C_ID INT,
+    ManufacturingDate DATE NOT NULL,
+    ExpiryDate DATE NOT NULL,
+    Price INT NOT NULL,
+    FOREIGN KEY (C_ID) REFERENCES Company(C_ID)
+);
+
+
